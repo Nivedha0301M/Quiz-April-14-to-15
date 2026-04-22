@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>MCQ Quiz</title>
+<style>
+body { font-family: Arial; padding: 20px; background:#f5f5f5; }
+.question { background:#fff; padding:15px; margin-bottom:15px; border-radius:8px; }
+.option { display:block; margin:5px 0; padding:8px; border:1px solid #ccc; border-radius:5px; cursor:pointer; }
+.option:hover { background:#e6f2ff; }
+.correct { background:#c8f7c5 !important; }
+.wrong { background:#f7c5c5 !important; }
+.explanation { margin-top:10px; font-weight:bold; }
+</style>
+</head>
+<body>
+
+<h2>Interactive MCQ Quiz</h2>
+
+<div id="quiz"></div>
+
+<script>
+
+const questions = [
+
+{
+q:`Vice President C. P. Radhakrishnan released an updated edition of the Constitution of India in which language, including both Devanagari and Persian scripts, on the occasion of Sindhi Language Day (April 10, 2026)?`,
+options:["Kashmiri","Sindhi","Urdu","Punjabi"],
+answer:1
+},
+
+{
+q:`The updated Constitution of India released in 2026 aligns with which long-term national vision aimed at transforming India into a developed nation?`,
+options:["Digital India 2030","Make in India 2035","Viksit Bharat 2047","Atmanirbhar Bharat 2030"],
+answer:2
+},
+
+{
+q:`Doordarshan (DD) signed a Memorandum of Understanding with which organization to promote Indian art, culture, and heritage globally through broadcasting collaboration?`,
+options:["Indian Council for Historical Research","Indian Council for Cultural Relations","Sahitya Akademi","Ministry of Culture"],
+answer:1
+},
+
+{
+q:`The Memorandum of Understanding between Doordarshan and Indian Council for Cultural Relations (ICCR) was signed for what duration?`,
+options:["One year","Two years","Three years","Five years"],
+answer:2
+},
+
+{
+q:`The Government of Gujarat signed an MoU with a Taiwan-linked company to develop an Indo-Taiwan Industrial Park in which region?`,
+options:["Surat–Vadodara","Rajkot–Jamnagar","Sanand–Dholera","Bhavnagar–Porbandar"],
+answer:2
+},
+
+{
+q:`The Indo-Taiwan Industrial Park initiative primarily aims to strengthen which sector in Gujarat?`,
+options:["Textile manufacturing","Automobile production","Semiconductor and electronics manufacturing","Renewable energy"],
+answer:2
+},
+
+{
+q:`Housing and Urban Development Corporation (HUDCO) and NBCC (India) Limited signed two MoUs focusing on redevelopment and asset monetisation projects in which city?`,
+options:["Mumbai","Chennai","New Delhi","Kolkata"],
+answer:2
+},
+
+{
+q:`The redevelopment project under the HUDCO–NBCC agreement covers approximately how much area at August Kranti Bhawan?`,
+options:["12,500 sq. m","15,200 sq. m","18,830 sq. m","22,000 sq. m"],
+answer:2
+},
+
+{
+q:`The 7th edition of the India–Uzbekistan Joint Military Exercise ‘DUSTLIK 2026’ was conducted at which location in Uzbekistan?`,
+options:["Tashkent Military Base","Samarkand Training Centre","Gurumsaray Field Training Area, Namangan","Bukhara Defence Zone"],
+answer:2
+},
+
+{
+q:`The India–Uzbekistan Joint Exercise ‘DUSTLIK 2026’ included a validation phase lasting how long?`,
+options:["24 hours","36 hours","48 hours","72 hours"],
+answer:2
+},
+
+{
+q:`India and Myanmar signed an MoU for the construction of a school in Nay Pyi Taw under which foreign policy approach of India?`,
+options:["Act East Policy","Neighbourhood First Policy","Look West Policy","Indo-Pacific Strategy"],
+answer:1
+},
+
+{
+q:`The Reserve Bank of India’s medium-term strategy ‘Utkarsh 2029’ outlines how many deliverables across its operational pillars?`,
+options:["35","42","49","60"],
+answer:2
+},
+
+{
+q:`‘Utkarsh 2029’, launched by the Reserve Bank of India, spans which time period?`,
+options:["2025–2028","2026–2029","2027–2030","2028–2031"],
+answer:1
+},
+
+{
+q:`The ‘Project Sa-Mudra’ under RBI’s Utkarsh 2029 initiative focuses on modernising which aspect?`,
+options:["Digital banking services","Currency management systems","Payment gateways","Rural credit systems"],
+answer:1
+},
+
+{
+q:`The Securities and Exchange Board of India (SEBI) launched SUPCOMS 2.1 primarily to replace which traditional mode of communication?`,
+options:["Paper-based filings","Telephonic communication","Email-based communication","SMS-based alerts"],
+answer:0
+},
+
+{
+q:`The Cyber-Sec Audit Compliance (C-SAC) platform launched by SEBI is designed to:`,
+options:["Regulate IPO filings","Monitor stock exchanges","Identify cybersecurity compliance gaps","Track mutual fund inflows"],
+answer:2
+},
+
+{
+q:`Paytm introduced biometric authentication for Unified Payments Interface (UPI) transactions in compliance with new rules issued by which authority?`,
+options:["Ministry of Finance","National Payments Corporation of India","Reserve Bank of India","SEBI"],
+answer:1
+},
+
+{
+q:`Under Paytm’s new feature, what is the maximum limit for cardless ATM withdrawal per transaction?`,
+options:["₹5,000","₹7,500","₹10,000","₹15,000"],
+answer:2
+},
+
+{
+q:`Central Ayurveda Research Institute (CARI), Bengaluru became the first institute under Central Council for Research in Ayurvedic Sciences (CCRAS) to receive which accreditation?`,
+options:["ISO 9001:2015","ISO 14001:2015","ISO 15189:2022","ISO 27001:2022"],
+answer:2
+},
+
+{
+q:`ISO 15189:2022 accreditation primarily relates to standards in which field?`,
+options:["Environmental safety","Industrial production","Medical laboratory quality and competence","Cybersecurity"],
+answer:2
+},
+
+{
+q:`Ismaïl Omar Guelleh was re-elected as the President of which country for a sixth consecutive term?`,
+options:["Eritrea","Djibouti","Somalia","Sudan"],
+answer:1
+},
+
+{
+q:`NASA’s Artemis II mission marked a historic milestone by achieving which of the following?`,
+options:["First private moon landing","First lunar mining experiment","First ship-to-ship communication with ISS","First Mars flyby"],
+answer:2
+},
+
+{
+q:`The Artemis II mission used which spacecraft for its journey around the Moon?`,
+options:["Dragon Capsule","Orion Capsule","Starliner","Apollo Module"],
+answer:1
+},
+
+{
+q:`The 22nd edition of the Senior Asian Wrestling Championships 2026 was held in which city?`,
+options:["Tashkent","Bishkek","Astana","Almaty"],
+answer:3
+},
+
+{
+q:`India secured which rank in the Asian Wrestling Championships 2026 medal tally?`,
+options:["Third","Fourth","Fifth","Sixth"],
+answer:1
+},
+
+{
+q:`The Asian Boxing Championships 2026 held in Ulaanbaatar saw which country top the medal tally?`,
+options:["India","Uzbekistan","Kazakhstan","China"],
+answer:3
+},
+
+{
+q:`Legendary playback singer Asha Bhosle, who passed away in 2026, was awarded which of the following honours in 2008?`,
+options:["Bharat Ratna","Padma Bhushan","Padma Vibhushan","Padma Shri"],
+answer:2
+},
+
+{
+q:`Colonel Sonam Wangchuk, known as the ‘Lion of Ladakh’, was awarded which gallantry award?`,
+options:["Param Vir Chakra","Ashoka Chakra","Mahavir Chakra","Kirti Chakra"],
+answer:2
+},
+
+{
+q:`National Safe Motherhood Day is observed annually on April 11 to commemorate the birth anniversary of which personality?`,
+options:["Sarojini Naidu","Kasturba Gandhi","Indira Gandhi","Kamala Nehru"],
+answer:0
+},
+
+{
+q:`World Parkinson’s Day is observed to mark the birth anniversary of which individual who first described Parkinson’s disease?`,
+options:["Louis Pasteur","Edward Jenner","James Parkinson","Alexander Fleming"],
+answer:2
+},
+
+{
+q:`The theme for World Parkinson’s Day 2026 is:`,
+options:["Care for All","End Neuro Diseases","Bridge the Care Gap","Health for Humanity"],
+answer:2
+},
+
+{
+q:`The National Safe Motherhood Day was first observed in which year?`,
+options:["2000","2003","2005","2008"],
+answer:1
+},
+
+{
+q:`The Artificial Intelligence hub ‘Aikam’ in Telangana signed an MoU with which international university?`,
+options:["University of Oxford","Stanford University","Deakin University","National University of Singapore"],
+answer:2
+},
+
+{
+q:`The MoU between Aikam and Deakin University aims to enhance which domain?`,
+options:["Agricultural research","Artificial Intelligence innovation and skilling","Defence technology","Space research"],
+answer:1
+},
+
+{
+q:`Doordarshan, which signed an MoU with ICCR, was established in which year?`,
+options:["1947","1955","1959","1965"],
+answer:2
+},
+
+{
+q:`The Indian Council for Cultural Relations (ICCR) was established in which year?`,
+options:["1945","1950","1955","1960"],
+answer:1
+},
+
+{
+q:`The Housing and Urban Development Corporation (HUDCO) was established in which year?`,
+options:["1965","1970","1975","1980"],
+answer:1
+},
+
+{
+q:`The Central Council for Research in Ayurvedic Sciences (CCRAS) was established in which year?`,
+options:["1965","1970","1978","1985"],
+answer:2
+},
+
+{
+q:`The National Aeronautics and Space Administration (NASA) was established in which year?`,
+options:["1945","1950","1958","1965"],
+answer:2
+},
+
+{
+q:`Unified Payments Interface (UPI), widely used for digital transactions in India, was launched in which year?`,
+options:["2014","2015","2016","2018"],
+answer:2
+}
+
+];
+
+const quizDiv = document.getElementById("quiz");
+
+questions.forEach((q, index) => {
+    let div = document.createElement("div");
+    div.className = "question";
+    
+    let html = `<p><b>Q${index+1}. ${q.q}</b></p>`;
+    
+    q.options.forEach((opt, i) => {
+        html += `<div class="option" onclick="checkAnswer(this, ${q.answer})">${opt}</div>`;
+    });
+    
+    html += `<div class="explanation"></div>`;
+    
+    div.innerHTML = html;
+    quizDiv.appendChild(div);
+});
+
+function checkAnswer(el, correctIndex){
+    let options = el.parentElement.querySelectorAll(".option");
+    let explanation = el.parentElement.querySelector(".explanation");
+
+    options.forEach((opt, i)=>{
+        opt.onclick=null;
+        if(i===correctIndex){
+            opt.classList.add("correct");
+        }
+    });
+
+    if([...options].indexOf(el) === correctIndex){
+        el.classList.add("correct");
+        explanation.innerHTML = "Correct Answer ✅";
+    } else {
+        el.classList.add("wrong");
+        explanation.innerHTML = "Wrong Answer ❌ | Correct answer highlighted above.";
+    }
+}
+
+</script>
+
+</body>
+</html>
